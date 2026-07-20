@@ -4,32 +4,12 @@
         All Genres
     </button>
 
-    <button class="genre-btn">
-        Fiction
-    </button>
+    @foreach ($categories as $category)
 
-    <button class="genre-btn">
-        Romance
-    </button>
+        <button class="genre-btn">
+            {{ $category->nama }}
+        </button>
 
-    <button class="genre-btn">
-        Mystery
-    </button>
-
-    <button class="genre-btn">
-        Fantasy
-    </button>
-
-    <button class="genre-btn">
-        Self-Help
-    </button>
-
-    <button class="genre-btn">
-        History
-    </button>
-
-    <button class="genre-btn">
-        Biography
-    </button>
+    @endforeach
 
 </div>
