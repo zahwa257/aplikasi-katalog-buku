@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class KatalogController extends Controller
 {
-    // Menampilkan semua buku
-    public function index()
+// Menampilkan semua buku
+public function index()
 {
-    $books = Book::all();
+    $books = Book::with(['author', 'category'])->get();
 
     return view('catalog.index', compact('books'));
 }
