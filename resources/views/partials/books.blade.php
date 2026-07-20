@@ -14,7 +14,7 @@
 
         <div class="recommend-line"></div>
 
-                <p class="recommend-text">
+        <p class="recommend-text">
             Find books that might become <br>
             your next favorite. <br><br>
 
@@ -23,18 +23,18 @@
             for readers.
         </p>
 
-        <a href="{{ route('books.create') }}" class="hero-btn mt-3">
-            + Add Book
-        </a>
+        @auth
+            <a href="{{ route('books.create') }}" class="hero-btn mt-3">
+                + Add Book
+            </a>
+        @endauth
 
     </div>
 
     <div class="recommend-right">
 
         @foreach($books as $book)
-
             @include('partials.book-card')
-
         @endforeach
 
     </div>

@@ -20,50 +20,53 @@
         </h5>
 
         <p class="book-author">
-
             <i class="bi bi-person-fill"></i>
-
             {{ $book->author?->nama ?? '-' }}
-
         </p>
 
     </div>
 
     <div class="book-action">
 
+        {{-- Semua orang bisa melihat detail --}}
         <a
-            href="{{ route('books.show',$book->id) }}"
+            href="{{ route('books.show', $book->id) }}"
             class="btn btn-detail">
 
             <i class="bi bi-eye-fill"></i>
 
         </a>
 
-        <a
-            href="{{ route('books.edit',$book->id) }}"
-            class="btn btn-edit">
+        {{-- Hanya admin yang login --}}
+        @auth
 
-            <i class="bi bi-pencil-fill"></i>
+            <a
+                href="{{ route('books.edit', $book->id) }}"
+                class="btn btn-edit">
 
-        </a>
+                <i class="bi bi-pencil-fill"></i>
 
-<form
-    class="delete-form"
-    action="{{ route('books.destroy',$book->id) }}"
-    method="POST">
+            </a>
 
-    @csrf
-    @method('DELETE')
+            <form
+                class="delete-form"
+                action="{{ route('books.destroy', $book->id) }}"
+                method="POST">
 
-    <button
-        type="submit"
-        class="btn btn-delete">
+                @csrf
+                @method('DELETE')
 
-        <i class="bi bi-trash-fill"></i>
+                <button
+                    type="submit"
+                    class="btn btn-delete">
 
-    </button>
+                    <i class="bi bi-trash-fill"></i>
 
-</form>
+                </button>
+
+            </form>
+
+        @endauth
 
     </div>
 

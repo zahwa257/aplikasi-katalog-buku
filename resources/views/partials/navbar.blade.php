@@ -3,7 +3,7 @@
     <div class="container-fluid px-5">
 
         <!-- Logo -->
-        <a href="#" class="navbar-brand d-flex align-items-center">
+        <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center">
 
             <img
                 src="{{ asset('images/logo.jpg') }}"
@@ -39,19 +39,44 @@
         <!-- Right -->
         <div class="d-flex align-items-center">
 
-            <i class="bi bi-bell fs-5 me-4"></i>
+            @guest
 
-            <img
-                src="https://ui-avatars.com/api/?name=User"
-                class="rounded-circle"
-                width="45"
-                height="45">
+                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-4">
+                    <i class="bi bi-box-arrow-in-right me-1"></i>
+                    Login
+                </a>
 
-            <span class="fw-semibold ms-2">
-                Obrolan
-            </span>
+            @else
 
-            <i class="bi bi-chevron-down ms-2"></i>
+                <i class="bi bi-bell fs-5 me-4"></i>
+
+                <img
+                    src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}"
+                    class="rounded-circle"
+                    width="45"
+                    height="45">
+
+                <span class="fw-semibold ms-2">
+                    {{ Auth::user()->name }}
+                </span>
+
+                <form method="POST"
+                      action="{{ route('logout') }}"
+                      class="ms-3">
+                    @csrf
+
+                    <button
+                        type="submit"
+                        class="btn btn-outline-danger btn-sm">
+
+                        <i class="bi bi-box-arrow-right"></i>
+                        Logout
+
+                    </button>
+
+                </form>
+
+            @endguest
 
         </div>
 
