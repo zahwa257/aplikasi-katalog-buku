@@ -9,25 +9,20 @@ class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        Category::create([
-            'nama' => 'Romance'
-        ]);
+        $categories = [
+            'Fantasi',
+            'Novel',
+            'Sastra',
+            'Religi',
+            'Komedi',
+            'Romansa',
+            'Puisi',
+        ];
 
-        Category::create([
-            'nama' => 'Drama'
-        ]);
-
-        Category::create([
-            'nama' => 'Fiksi'
-        ]);
-
-        Category::create([
-            'nama' => 'Petualangan'
-        ]);
-
-        Category::create([
-            'nama' => 'Aksi'
-        ]);
-        
+        foreach ($categories as $category) {
+            Category::create([
+                'nama' => $category,
+            ]);
+        }
     }
 }

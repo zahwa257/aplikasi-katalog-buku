@@ -9,21 +9,33 @@ class AuthorSeeder extends Seeder
 {
     public function run(): void
     {
-        Author::create([
-            'nama' => 'Pidi Baiq'
-        ]);
+        $authors = [
+            'Tere Liye',
+            'Andrea Hirata',
+            'Dee Lestari',
+            'Pramoedya Ananta Toer',
+            'Ahmad Tohari',
+            'Eka Kurniawan',
+            'Habiburrahman El Shirazy',
+            'Asma Nadia',
+            'Ahmad Fuadi',
+            'Leila S. Chudori',
+            'Ayu Utami',
+            'Pidi Baiq',
+            'Raditya Dika',
+            'Ika Natassa',
+            'Okky Madasari',
+            'Sapardi Djoko Damono',
+            'Putu Wijaya',
+            'Budi Darma',
+            'Nh. Dini',
+            'Taufiq Ismail',
+        ];
 
-        Author::create([
-            'nama' => 'Sapardi Djoko Damono'
-        ]);
-        Author::create([
-            'nama' => 'Natasha Rizky'
-        ]);
-        Author::create([
-            'nama' => 'Andrea Hirata'
-        ]);
-        Author::create([
-            'nama' => 'Tere Liye'
-        ]);
+        foreach ($authors as $author) {
+            Author::create([
+                'nama' => $author,
+            ]);
+        }
     }
 }
