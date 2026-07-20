@@ -8,13 +8,14 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 
 class KatalogController extends Controller
+
 {
-// Menampilkan semua buku
 public function index()
 {
     $books = Book::with(['author', 'category'])->get();
+    $categories = Category::all();
 
-    return view('catalog.index', compact('books'));
+    return view('catalog.index', compact('books', 'categories'));
 }
 
     // Form tambah buku
