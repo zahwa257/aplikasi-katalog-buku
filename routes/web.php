@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\ProfileController;
 
+
 Route::get('/', [BookController::class,'index']);
 Route::resource('books', BookController::class);
 
