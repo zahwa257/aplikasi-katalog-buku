@@ -10,12 +10,12 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
     public function index()
-    {
-        $books = Book::with(['author','category'])->get();
+{
+    $books = Book::with(['author', 'category'])->get();
+    $categories = Category::all();
 
-        return view('catalog.index', compact('books'));
-    }
-
+    return view('catalog.index', compact('books', 'categories'));
+}
     public function create()
     {
         $authors = Author::all();
