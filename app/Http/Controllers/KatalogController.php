@@ -10,12 +10,66 @@ use Illuminate\Http\Request;
 class KatalogController extends Controller
 
 {
-public function index()
+public function index(Request $request)
 {
-    $books = Book::with(['author', 'category'])->get();
+    $query = Book::with(['author', 'category']);
+
+    // Pencarian berdasarkan judul atau penulis
+    if ($request->filled('search')) {
+
+        $search = $request->search;
+
+        $query->where(function ($q) use ($search) {
+
+            $q->where('judul', 'like', "%{$search}%")
+              ->orWhereHas('author', function ($author) use ($search) {
+
+                    $author->where('nama', 'like', "%{$search}%");
+
+              });
+
+        });
+    }
+
+    // Filter kategori
+    if ($request->filled('category')) {
+
+        $query->whereHas('category', function ($q) use ($request) {
+
+            $q->where('id', $request->category);
+
+        });
+
+    }
+
+    // Sorting
+if ($request->filled('sort')) {
+
+    if ($request->sort == 'judul_asc') {
+
+        $query->orderBy('judul', 'asc');
+
+    } elseif ($request->sort == 'judul_desc') {
+
+        $query->orderBy('judul', 'desc');
+
+    }
+
+} else {
+
+    $query->orderBy('judul', 'asc');
+
+}
+
+// Pagination
+$books = $query->paginate(8)->withQueryString();
+
     $categories = Category::all();
 
-    return view('catalog.index', compact('books', 'categories'));
+    return view('catalog.index', compact(
+        'books',
+        'categories'
+    ));
 }
 
     // Form tambah buku

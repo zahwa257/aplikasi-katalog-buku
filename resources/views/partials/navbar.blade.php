@@ -26,15 +26,24 @@
         </a>
 
         <!-- Search -->
-        <div class="search-box mx-auto">
+                <form action="{{ route('home') }}" method="GET" class="search-box mx-auto">
 
             <i class="bi bi-search"></i>
 
             <input
                 type="text"
+                name="search"
+                value="{{ request('search') }}"
                 placeholder="Search for a book, author, or category...">
 
-        </div>
+            @if(request('category'))
+                <input
+                    type="hidden"
+                    name="category"
+                    value="{{ request('category') }}">
+            @endif
+
+        </form>
 
         <!-- Right -->
         <div class="d-flex align-items-center">

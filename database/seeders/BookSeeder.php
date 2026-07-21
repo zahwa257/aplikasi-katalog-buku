@@ -14,140 +14,140 @@ class BookSeeder extends Seeder
             [
                 'judul' => 'Bumi',
                 'author_id' => 1,
-                'category_id' => 1,
+                'category_id' => 1, // Fantasi
                 'gambar' => 'bumi.jpg'
             ],
 
             [
                 'judul' => 'Laskar Pelangi',
                 'author_id' => 2,
-                'category_id' => 1,
+                'category_id' => 2, // Novel
                 'gambar' => 'laskar-pelangi.jpg'
             ],
 
             [
                 'judul' => 'Perahu Kertas',
                 'author_id' => 3,
-                'category_id' => 1,
+                'category_id' => 6, // Romansa
                 'gambar' => 'perahu-kertas.jpg'
             ],
 
             [
                 'judul' => 'Bumi Manusia',
                 'author_id' => 4,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'bumi-manusia.jpg'
             ],
 
             [
                 'judul' => 'Ronggeng Dukuh Paruk',
                 'author_id' => 5,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'ronggeng-dukuh-paruk.jpg'
             ],
 
             [
                 'judul' => 'Cantik Itu Luka',
                 'author_id' => 6,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'cantik-itu-luka.jpg'
             ],
 
             [
                 'judul' => 'Ayat-Ayat Cinta',
                 'author_id' => 7,
-                'category_id' => 1,
+                'category_id' => 4, // Religi
                 'gambar' => 'ayat-ayat-cinta.jpg'
             ],
 
             [
                 'judul' => 'Surga yang Tak Dirindukan',
                 'author_id' => 8,
-                'category_id' => 1,
+                'category_id' => 4, // Religi
                 'gambar' => 'surga-yang-tak-dirindukan.jpg'
             ],
 
             [
                 'judul' => 'Negeri 5 Menara',
                 'author_id' => 9,
-                'category_id' => 1,
+                'category_id' => 2, // Novel
                 'gambar' => 'negeri-5-menara.jpg'
             ],
 
             [
                 'judul' => 'Laut Bercerita',
                 'author_id' => 10,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'laut-bercerita.jpg'
             ],
 
             [
                 'judul' => 'Saman',
                 'author_id' => 11,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'saman.jpg'
             ],
 
             [
                 'judul' => 'Dilan: Dia adalah Dilanku Tahun 1990',
                 'author_id' => 12,
-                'category_id' => 1,
+                'category_id' => 6, // Romansa
                 'gambar' => 'dilan-1990.jpg'
             ],
 
             [
                 'judul' => 'Kambing Jantan',
                 'author_id' => 13,
-                'category_id' => 1,
+                'category_id' => 5, // Komedi
                 'gambar' => 'kambing-jantan.jpg'
             ],
 
             [
                 'judul' => 'Critical Eleven',
                 'author_id' => 14,
-                'category_id' => 1,
+                'category_id' => 6, // Romansa
                 'gambar' => 'critical-eleven.jpg'
             ],
 
             [
                 'judul' => 'Entrok',
                 'author_id' => 15,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'entrok.jpg'
             ],
 
             [
                 'judul' => 'Hujan Bulan Juni',
                 'author_id' => 16,
-                'category_id' => 1,
+                'category_id' => 7, // Puisi
                 'gambar' => 'hujan-bulan-juni.jpg'
             ],
 
             [
                 'judul' => 'Telegram',
                 'author_id' => 17,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'telegram.jpg'
             ],
 
             [
                 'judul' => 'Olenka',
                 'author_id' => 18,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'olenka.jpg'
             ],
 
             [
                 'judul' => 'Pada Sebuah Kapal',
                 'author_id' => 19,
-                'category_id' => 1,
+                'category_id' => 6, // Romansa
                 'gambar' => 'pada-sebuah-kapal.jpg'
             ],
 
             [
                 'judul' => 'Tirani dan Benteng',
                 'author_id' => 20,
-                'category_id' => 1,
+                'category_id' => 3, // Sastra
                 'gambar' => 'tirani-dan-benteng.jpg'
             ],
 

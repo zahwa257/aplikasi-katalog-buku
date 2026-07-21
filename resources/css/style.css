@@ -178,10 +178,12 @@ body{
 
     box-shadow:0 10px 25px rgba(0,0,0,.05);
 
+    text-decoration: none;
+    color : #212529;
+    display : inline-block;
 }
 
 .genre-btn:hover,
-
 .genre-btn.active{
 
     background:#F4A328;

@@ -40,3 +40,6 @@
     </div>
 
 </div>
+        <div class="d-flex justify-content-center mt-5">
+    {{ $books->links() }}
+</div>

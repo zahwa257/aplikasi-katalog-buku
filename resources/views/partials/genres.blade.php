@@ -1,14 +1,21 @@
 <div class="genre-list">
 
-    <button class="genre-btn active">
+    <a href="{{ route('home') }}"
+       class="genre-btn {{ request('category') ? '' : 'active' }}">
         All Genres
-    </button>
+    </a>
 
     @foreach ($categories as $category)
 
-        <button class="genre-btn">
+        <a href="{{ route('home', [
+            'category' => $category->id,
+            'search' => request('search')
+        ]) }}"
+           class="genre-btn {{ request('category') == $category->id ? 'active' : '' }}">
+
             {{ $category->nama }}
-        </button>
+
+        </a>
 
     @endforeach
 
