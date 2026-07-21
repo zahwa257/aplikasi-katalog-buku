@@ -43,8 +43,32 @@
                     value="{{ request('category') }}">
             @endif
 
-        </form>
+                </form>
+                    <form action="{{ route('home') }}" method="GET">
 
+            <input type="hidden" name="search" value="{{ request('search') }}">
+            <input type="hidden" name="category" value="{{ request('category') }}">
+
+            <select
+                name="sort"
+                class="form-select rounded-pill"
+                onchange="this.form.submit()">
+
+                <option value="">Urutkan</option>
+
+                <option value="judul_asc"
+                    {{ request('sort') == 'judul_asc' ? 'selected' : '' }}>
+                    Judul A-Z
+                </option>
+
+                <option value="judul_desc"
+                    {{ request('sort') == 'judul_desc' ? 'selected' : '' }}>
+                    Judul Z-A
+                </option>
+
+            </select>
+
+        </form>
         <!-- Right -->
         <div class="d-flex align-items-center">
 
