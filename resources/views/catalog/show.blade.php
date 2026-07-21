@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.catalog')
 
 @section('title','Detail Buku')
 
@@ -48,14 +48,16 @@
 
             <div class="mt-4 d-flex gap-3">
 
-                <a
-                    href="{{ route('books.edit',$book->id) }}"
-                    class="btn-save">
+                                @auth
+                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning">
+                        <i class="bi bi-pencil-fill"></i>
+                        Edit Buku
+                    </a>
+                @endauth
 
-                    <i class="bi bi-pencil-square"></i>
-
-                    Edit Buku
-
+                <a href="{{ route('home') }}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i>
+                    Kembali
                 </a>
 
                 <a

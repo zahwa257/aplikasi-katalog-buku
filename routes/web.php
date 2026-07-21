@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
         return redirect()->route('books.index');
     })->name('dashboard');
 
-    Route::resource('books', BookController::class);
+Route::resource('books', BookController::class)->except(['show']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
