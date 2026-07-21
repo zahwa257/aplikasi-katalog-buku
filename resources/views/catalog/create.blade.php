@@ -39,10 +39,13 @@
 
         @endif
 
-        <form action="{{ route('books.store') }}" method="POST">
+        <form action="{{ route('books.store') }}"
+              method="POST"
+              enctype="multipart/form-data">
 
             @csrf
 
+            {{-- Judul --}}
             <div class="mb-4">
 
                 <label>Judul Buku</label>
@@ -56,6 +59,7 @@
 
             </div>
 
+            {{-- Penulis --}}
             <div class="mb-4">
 
                 <label>Penulis</label>
@@ -69,7 +73,9 @@
 
                     @foreach($authors as $author)
 
-                        <option value="{{ $author->id }}">
+                        <option
+                            value="{{ $author->id }}"
+                            {{ old('author_id') == $author->id ? 'selected' : '' }}>
 
                             {{ $author->nama }}
 
@@ -81,6 +87,7 @@
 
             </div>
 
+            {{-- Kategori --}}
             <div class="mb-4">
 
                 <label>Kategori</label>
@@ -94,7 +101,9 @@
 
                     @foreach($categories as $category)
 
-                        <option value="{{ $category->id }}">
+                        <option
+                            value="{{ $category->id }}"
+                            {{ old('category_id') == $category->id ? 'selected' : '' }}>
 
                             {{ $category->nama }}
 
@@ -106,22 +115,27 @@
 
             </div>
 
+            {{-- Upload Cover --}}
             <div class="mb-4">
 
-                <label>Nama File Cover</label>
+                <label>Upload Cover Buku</label>
 
                 <input
-                    type="text"
+                    type="file"
                     name="gambar"
                     class="form-control"
-                    placeholder="contoh : dilan.jpg"
+                    accept=".jpg,.jpeg,.png"
                     required>
+
+                <small class="text-muted">
+                    Format: JPG, JPEG, PNG (Maksimal 2 MB)
+                </small>
 
             </div>
 
             <div class="d-flex gap-3">
 
-                <button class="btn-save">
+                <button type="submit" class="btn-save">
 
                     <i class="bi bi-check-lg"></i>
 

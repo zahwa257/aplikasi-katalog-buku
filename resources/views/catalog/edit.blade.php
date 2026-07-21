@@ -39,7 +39,9 @@
 
         @endif
 
-        <form action="{{ route('books.update',$book->id) }}" method="POST">
+        <form action="{{ route('books.update',$book->id) }}"
+            method="POST"
+            enctype="multipart/form-data">
 
             @csrf
             @method('PUT')
@@ -57,28 +59,31 @@
 
             </div>
 
-            <div class="mb-4">
+                        <div class="mb-4">
 
-                <label>Penulis</label>
+                <label>Cover Buku Saat Ini</label>
 
-                <select
-                    name="author_id"
-                    class="form-select"
-                    required>
+                <div class="mb-3">
 
-                    @foreach($authors as $author)
+                    <img
+                        src="{{ asset('storage/books/' . $book->gambar) }}"
+                        alt="{{ $book->judul }}"
+                        width="140"
+                        class="img-thumbnail">
 
-                        <option
-                            value="{{ $author->id }}"
-                            {{ $book->author_id == $author->id ? 'selected' : '' }}>
+                </div>
 
-                            {{ $author->nama }}
+                <label>Ganti Cover Buku</label>
 
-                        </option>
+                <input
+                    type="file"
+                    name="gambar"
+                    class="form-control"
+                    accept=".jpg,.jpeg,.png">
 
-                    @endforeach
-
-                </select>
+                <small class="text-muted">
+                    Kosongkan jika tidak ingin mengganti cover.
+                </small>
 
             </div>
 
