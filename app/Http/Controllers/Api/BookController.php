@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
-use App\Http\Resources\BookResource;
-use App\Http\Resources\BookCollection;
+use App\Http\Requests\StoreBookRequest;
+use App\Http\Requests\UpdateBookRequest;
 
 class BookController extends Controller
 {
@@ -82,14 +82,9 @@ class BookController extends Controller
     }
 
     // Tambah buku
-    public function store(Request $request)
+    public function store(StoreBookRequest $request)
     {
-        $validated = $request->validate([
-            'judul'       => 'required|string|max:255',
-            'author_id'   => 'required|exists:authors,id',
-            'category_id' => 'required|exists:categories,id',
-            'gambar'      => 'required|string'
-        ]);
+        $validated = $request->validated();
 
         $book = Book::create($validated);
         $book->load(['author', 'category']);
@@ -112,7 +107,7 @@ class BookController extends Controller
     }
 
     // Update buku
-    public function update(Request $request, $id)
+    public function update(UpdateBookRequest $request, $id)
     {
         $book = Book::find($id);
 
@@ -123,12 +118,7 @@ class BookController extends Controller
             ], 404);
         }
 
-        $validated = $request->validate([
-            'judul'       => 'required|string|max:255',
-            'author_id'   => 'required|exists:authors,id',
-            'category_id' => 'required|exists:categories,id',
-            'gambar'      => 'required|string'
-        ]);
+        $validated = $request->validated();
 
         $book->update($validated);
         $book->load(['author', 'category']);
