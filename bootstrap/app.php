@@ -15,11 +15,15 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
 
-        $middleware->alias([
-            'admin' => AdminMiddleware::class,
-        ]);
+    // Aktifkan middleware Sanctum
+    $middleware->statefulApi();
 
-    })
+    $middleware->alias([
+        'admin' => AdminMiddleware::class,
+    ]);
+
+})
+
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*'),
