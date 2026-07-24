@@ -1,44 +1,88 @@
-<div class="hero-card">
+<section class="hero-section">
 
-    <div class="hero-left">
+    <div class="container-custom">
 
-        <span class="hero-tag">
-            Featured Collection
-        </span>
+        <div class="row align-items-center gy-5">
 
-        <h1>
-            POPULAR
-            <br>
-            <span>BESTSELLERS</span>
-        </h1>
+            {{-- LEFT --}}
+            <div class="col-lg-6">
 
-        <p>
-            Discover our most popular books this month. Explore inspiring stories,
-            best-selling novels, and timeless classics chosen just for you.
-        </p>
+                <span class="hero-badge">
+                    📚 Selamat Datang di BookNest
+                </span>
 
-        <a href="#" class="hero-btn">
-            Watch Full List
-        </a>
+                <h1 class="hero-title mt-4">
+                    Temukan Buku
+                    <span>Favoritmu</span>
+                    Dengan Mudah
+                </h1>
 
-    </div>
+                <p class="hero-description">
 
-    <div class="hero-right">
+                    Jelajahi ribuan koleksi buku dari berbagai kategori.
+                    Mulai dari novel, teknologi, kesehatan, bisnis hingga
+                    pengembangan diri dalam satu tempat.
 
-        @foreach($books->take(3) as $book)
+                </p>
 
-            <div class="hero-book">
+                <div class="hero-buttons">
 
-                <img
-                    src="{{ asset('images/'.$book->gambar) }}"
-                    alt="{{ $book->judul }}">
+                    <a href="#books" class="btn-primary-custom">
+                        Jelajahi Koleksi
+                    </a>
+                    <a href="#footer" class="btn-outline-custom ms-3">
+                        Tentang
+                    </a>
+
+                </div>
+
+                <div class="hero-info">
+
+                    <div>
+
+                        <h4>5K+</h4>
+
+                        <small>Buku</small>
+
+                    </div>
+
+                    <div>
+
+                        <h4>150+</h4>
+
+                        <small>Kategori</small>
+
+                    </div>
+
+                    <div>
+
+                        <h4>10K+</h4>
+
+                        <small>Pengguna</small>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        @endforeach
+            {{-- RIGHT --}}
+            <div class="col-lg-6">
 
-        <div class="bookshelf"></div>
+                <div class="hero-image-wrapper">
+
+                    <div class="hero-bg-circle"></div>
+
+                    <img src="{{ asset('images/hero-book.jpg') }}"
+                        class="hero-image"
+                        alt="Hero">
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-</div>
+</section>

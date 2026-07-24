@@ -1,48 +1,79 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.catalog')
 
-<head>
+@section('title', 'Katalog Buku')
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('content')
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@include('partials.navbar')
 
-    <title>@yield('title', 'Katalog Buku')</title>
+@include('partials.hero')
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+@include('partials.search')
 
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+@include('partials.books')
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+@include('partials.footer')
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+@endsection
 
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+@section('scripts')
 
-    <!-- CSS -->
-    @vite([
-        'resources/css/app.css',
-        'resources/js/app.js'
-    ])
+@if(session('success'))
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
-</head>
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: '{{ session("success") }}',
+        timer: 1800,
+        showConfirmButton: false
+    });
 
-<body>
+});
+</script>
 
-    <div class="container py-4">
-        @yield('content')
-    </div>
+@endif
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.querySelectorAll('.delete-form').forEach(form => {
 
-    @yield('scripts')
+    form.addEventListener('submit', function(e){
 
-</body>
+        e.preventDefault();
 
-</html>
+        Swal.fire({
+
+            title: 'Hapus Buku?',
+
+            text: 'Data tidak dapat dikembalikan.',
+
+            icon: 'warning',
+
+            showCancelButton: true,
+
+            confirmButtonColor: '#C89A35',
+
+            cancelButtonColor: '#6c757d',
+
+            confirmButtonText: 'Ya',
+
+            cancelButtonText: 'Batal'
+
+        }).then((result)=>{
+
+            if(result.isConfirmed){
+
+                form.submit();
+
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+@endsection

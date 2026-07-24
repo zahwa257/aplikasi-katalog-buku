@@ -1,22 +1,33 @@
-<div class="genre-list">
+<section class="genre-section">
 
-    <a href="{{ route('home') }}"
-       class="genre-btn {{ request('category') ? '' : 'active' }}">
-        All Genres
-    </a>
+    <div class="genre-list">
 
-    @foreach ($categories as $category)
+        <a href="{{ route('home') }}"
+            class="genre-btn {{ request('category') ? '' : 'active' }}">
 
-        <a href="{{ route('home', [
-            'category' => $category->id,
-            'search' => request('search')
-        ]) }}"
-           class="genre-btn {{ request('category') == $category->id ? 'active' : '' }}">
+            <i class="bi bi-grid me-2"></i>
 
-            {{ $category->nama }}
+            Semua
 
         </a>
 
-    @endforeach
+        @foreach($categories as $category)
 
-</div>
+            <a
+                href="{{ route('home',[
+                    'category'=>$category->id,
+                    'search'=>request('search'),
+                    'sort'=>request('sort')
+                ]) }}"
+
+                class="genre-btn {{ request('category')==$category->id ? 'active' : '' }}">
+
+                {{ $category->nama }}
+
+            </a>
+
+        @endforeach
+
+    </div>
+
+</section>

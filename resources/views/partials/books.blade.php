@@ -1,45 +1,63 @@
-<div class="recommend-card">
+<section class="books-section" id="books">
 
-    <div class="recommend-left">
+    <div class="container-custom">
 
-        <span class="section-tag">
-            Recommendation
-        </span>
+        <div class="section-header">
 
-        <h2>
-            CAN BE
-            <br>
-            INTERESTING
-        </h2>
+            <div>
 
-        <div class="recommend-line"></div>
+                <span class="section-badge">
+                    📚 Koleksi Kami
+                </span>
 
-        <p class="recommend-text">
-            Find books that might become <br>
-            your next favorite. <br><br>
+                <h2 class="section-title mt-3">
+                    Koleksi Buku Terbaru
+                </h2>
 
-            Explore inspiring stories from <br>
-            various genres carefully selected <br>
-            for readers.
-        </p>
+                <p class="section-description">
+                    Temukan berbagai buku pilihan dari berbagai kategori yang siap menemani waktu bacamu.
+                </p>
 
-        @auth
-            <a href="{{ route('books.create') }}" class="hero-btn mt-3">
-                + Add Book
+            </div>
+
+            <a href="#books" class="btn-outline-custom">
+             Lihat Semua
             </a>
-        @endauth
+
+        </div>
+
+        <div class="row g-4 mt-2">
+
+            @forelse($books as $book)
+
+                <div class="col-lg-3 col-md-6">
+
+                    @include('partials.book-card')
+
+                </div>
+
+            @empty
+
+                <div class="col-12">
+
+                    <div class="empty-state">
+
+                        <i class="bi bi-journal-x"></i>
+
+                        <h4>Belum ada buku</h4>
+
+                        <p>
+                            Data buku masih kosong.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            @endforelse
+
+        </div>
 
     </div>
 
-    <div class="recommend-right">
-
-        @foreach($books as $book)
-            @include('partials.book-card')
-        @endforeach
-
-    </div>
-
-</div>
-        <div class="d-flex justify-content-center mt-5">
-    {{ $books->links() }}
-</div>
+</section>
